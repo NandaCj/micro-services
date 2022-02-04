@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  developer:
+    build:
+      context: .
+      dockerfile: departments/developer.dockerfile
+    volumes:
+      - ${PWD}/departments/developer.py:/app/app.py
+    ports:
+      - "5000:5000"
+  sales:
+    build:
+      context: .
+      dockerfile: departments/sales.dockerfile
+    volumes:
+      - ${PWD}/departments/sales.py:/app/app.py
+    ports:
+      - "5001:5001"
+  marketing:
+    build:
+      context: .
+      dockerfile: departments/marketing.dockerfile
+    volumes:
+      - ${PWD}/departments/marketing.py:/app/app.py
+    ports:
+      - "5002:5002"
